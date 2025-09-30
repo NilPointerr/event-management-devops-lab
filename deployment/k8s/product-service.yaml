@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: product-service
+  namespace: inventory-ns
+spec:
+  type: NodePort
+  ports:
+    - port: 8001
+      targetPort: 8001
+      nodePort: 30001   # Access via localhost:30001
+  selector:
+    app: product-service

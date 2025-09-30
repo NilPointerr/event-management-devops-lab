@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user-service
+  namespace: inventory-ns
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user-service
+  template:
+    metadata:
+      labels:
+        app: user-service
+    spec:
+      containers:
+        - name: user-service
+          image: deployment-user_service:latest
+          ports:
+            - containerPort: 8003
+          env:
+            - name: DATABASE_URL
+              value: "postgresql://postgres:root@postgres-service:5432/inventory_db"

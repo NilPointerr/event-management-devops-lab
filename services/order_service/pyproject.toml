@@ -1,0 +1,12 @@
+[project]
+name = "order_service"
+version = "0.1.0"
+description = "FastAPI Order Service"
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "sqlalchemy",
+  "psycopg2-binary",
+  "pydantic",
+  "uv"
+]
